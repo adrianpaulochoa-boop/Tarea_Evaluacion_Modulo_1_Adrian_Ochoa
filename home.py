@@ -20,7 +20,7 @@ def renderizar_home():
     with col1:
         estilos.tarjeta_onda_expansiva(
             titulo="Desarrollador",
-            valor="Pelecing",
+            valor="Adrian Paul Ochoa Daza",
             descripcion="Ingeniería y Desarrollo Frontend",
             altura=160
         )
