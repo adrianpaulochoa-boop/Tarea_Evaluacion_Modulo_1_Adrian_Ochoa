@@ -1,32 +1,51 @@
 # =============================================================================
 # ARCHIVO: home.py
-# DESCRIPCIÓN: Módulo de la vista inicial (Home) - Versión Nativa.
+# DESCRIPCIÓN: Módulo de la vista inicial (Home).
+# Interfaz optimizada con encabezados centrados y tarjetas interactivas.
 # =============================================================================
 
 import streamlit as st
+import estilos
 
 def renderizar_home():
-    # Encabezados nativos de Streamlit
-    st.title("Plataforma Integral Oil & Gas")
-    st.subheader("Bootcamp Data Analytics for Oil & Gas")
+    # 1. Encabezados centrados
+    st.markdown("<h1 style='text-align: center; color: #F1FAF7;'>Plataforma Integral Oil & Gas</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: #F1FAF7; opacity: 0.9;'>Bootcamp Data Analytics for Oil & Gas</h3>", unsafe_allow_html=True)
     
-    st.divider()
+    st.markdown("<br>", unsafe_allow_html=True)
     
-    # Uso de st.metric nativo para simular temporalmente las tarjetas de resultados
+    # 2. Tarjetas superiores (Onda Expansiva)
     col1, col2 = st.columns(2)
     
     with col1:
-        st.metric(label="Desarrollador", value="Adrian Paul Ochoa Daza")
+        estilos.tarjeta_onda_expansiva(
+            titulo="Desarrollador",
+            valor="Pelecing",
+            descripcion="Ingeniería y Desarrollo Frontend",
+            altura=160
+        )
         
     with col2:
-        st.metric(label="Módulos Técnicos", value="Producción, Perforación, Reservorios")
+        estilos.tarjeta_onda_expansiva(
+            titulo="Módulos Técnicos",
+            valor="Producción, Perforación, Reservorios",
+            descripcion="Modelamiento SPE Interactivo",
+            altura=160
+        )
         
-    # Contenedor nativo para la descripción del proyecto
-    st.markdown("### Propósito Técnico de la Aplicación")
-    st.info(
+    # 3. Tarjeta inferior (Hover simple)
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    texto_proposito = (
         "Esta herramienta modular automatiza cálculos de ingeniería petrolera. "
         "Facilita la evaluación del desempeño de afluencia (IPR), el balance hidrostático "
         "de perforación y la estimación volumétrica del Petróleo Original en Sitio (POES)."
+    )
+    
+    estilos.tarjeta_hover_simple(
+        titulo="Propósito Técnico de la Aplicación",
+        descripcion=texto_proposito,
+        altura=180
     )
     
     

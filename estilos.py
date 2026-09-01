@@ -56,6 +56,14 @@ def cargar_css_global():
         transition: all 0.3s ease !important;
     }
     
+    [data-testid="stPlotlyChart"] {
+        background-color: #FFFFFF !important;
+        border-radius: 16px !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+        padding: 15px !important;
+        border: 1px solid #E5E7EB;
+    }
+    
     .stButton>button:hover {
         background-color: #A3E635 !important;
         color: #1F2933 !important;
@@ -254,3 +262,46 @@ def tarjeta_cyber_glitch(titulo, valor, descripcion="Pasa el cursor para desencr
     </script>
     """
     components.html(html, height=altura)
+    
+    def tarjeta_hover_simple(titulo, descripcion, altura=180):
+        """
+        Renderiza una tarjeta informativa amplia con un efecto hover sutil,
+        ideal para descripciones largas o propósitos de la aplicación.
+        """
+        html = f"""
+        <style>
+        body {{ margin: 0; padding: 10px; font-family: Arial, sans-serif; background: transparent; }}
+        .hover-card {{
+            background-color: #1F2933;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #0F766E;
+            color: #F1FAF7;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }}
+        .hover-card:hover {{
+            transform: translateY(-5px);
+            border-left-color: #A3E635;
+            box-shadow: 0 10px 25px rgba(163, 230, 53, 0.2);
+        }}
+        .hover-titulo {{
+            color: #F1FAF7;
+            margin-top: 0;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }}
+        .hover-desc {{
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0;
+            opacity: 0.9;
+        }}
+        </style>
+        
+        <div class="hover-card">
+            <h4 class="hover-titulo">{titulo}</h4>
+            <p class="hover-desc">{descripcion}</p>
+        </div>
+        """
+        components.html(html, height=altura)
