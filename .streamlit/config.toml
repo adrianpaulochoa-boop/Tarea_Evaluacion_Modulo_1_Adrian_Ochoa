@@ -1,0 +1,15 @@
+[theme]
+# Color principal para botones de radio, pestañas, sliders y acentos
+primaryColor = "#A3E635"
+
+# Color de fondo del área principal de la aplicación
+backgroundColor = "#0B3C49"
+
+# Color de fondo del menú lateral (Sidebar)
+secondaryBackgroundColor = "#072A34"
+
+# Color del texto general
+textColor = "#F1FAF7"
+
+# Tipografía base
+font = "sans serif"
