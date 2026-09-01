@@ -194,39 +194,59 @@ def tarjeta_onda_expansiva(titulo, valor, descripcion="Haz clic en la tarjeta", 
     components.html(html, height=altura)
 
 
-def tarjeta_fluido_ondulante(titulo, valor, porcentaje_llenado, altura=180):
-    """
-    Tarjeta que simula dinámicamente un nivel de fluido o tanque.
-    """
+def tarjeta_fluido_ondulante(titulo, valor, porcentaje_llenado, altura=150):
     html = f"""
     <style>
     body {{ margin: 0; padding: 10px; font-family: Arial, sans-serif; background: transparent; }}
-    .wave-card {{
-        position: relative; overflow: hidden; background: #1F2933; border-radius: 12px;
-        padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); color: #F1FAF7; z-index: 1;
+    
+    .fluido-container {{
+        position: relative;
+        background-color: #1F2933; /* Fondo estático (sin rotación) */
+        border-radius: 12px;
+        overflow: hidden;
+        padding: 25px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        /* Borde reubicado en la caja principal con box-sizing para evitar cortes */
+        border-left: 5px solid #0F766E;
+        box-sizing: border-box;
     }}
-    .wave {{
-        position: absolute; bottom: 0; left: 0; width: 100%; height: {porcentaje_llenado}%;
-        background: #0F766E; z-index: -1; transition: height 0.5s;
+    
+    /* Capa giratoria aislada (la onda gris) */
+    .fluido-onda {{
+        position: absolute;
+        bottom: {porcentaje_llenado - 120}%; 
+        left: -50%;
+        width: 200%;
+        height: 250%;
+        background-color: rgba(255, 255, 255, 0.05); /* Gris claro translúcido */
+        border-radius: 43%;
+        animation: rotacion-lenta 7s linear infinite;
+        z-index: 0;
     }}
-    .wave::before, .wave::after {{
-        content: ""; position: absolute; width: 200%; height: 200%;
-        top: -50%; left: 50%; transform: translate(-50%, -75%); background: #1F2933;
+    
+    @keyframes rotacion-lenta {{
+        0% {{ transform: rotate(0deg); }}
+        100% {{ transform: rotate(360deg); }}
     }}
-    .wave::before {{ border-radius: 45%; animation: animate 5s linear infinite; }}
-    .wave::after {{ border-radius: 40%; background: rgba(31, 41, 51, 0.5); animation: animate 10s linear infinite; }}
-    @keyframes animate {{
-        0% {{ transform: translate(-50%, -75%) rotate(0deg); }}
-        100% {{ transform: translate(-50%, -75%) rotate(360deg); }}
+    
+    /* Capa superior de texto para evitar superposiciones */
+    .fluido-contenido {{
+        position: relative;
+        z-index: 1;
     }}
-    .valor {{ font-size: 26px; font-weight: 800; color: #A3E635; margin: 10px 0; text-shadow: 1px 1px 2px #000; }}
+    
+    .fluido-titulo {{ color: #F1FAF7; margin-top: 0; font-size: 16px; font-weight: bold; }}
+    .fluido-valor {{ color: #A3E635; margin: 10px 0; font-size: 28px; font-weight: 900; }}
+    .fluido-desc {{ color: #F1FAF7; margin: 0; font-size: 13px; opacity: 0.8; }}
     </style>
     
-    <div class="wave-card">
-        <h4 style="margin:0; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px;">{titulo}</h4>
-        <div class="valor">{valor}</div>
-        <p style="margin:0; font-size:14px; opacity: 0.8;">Nivel operativo: {porcentaje_llenado}%</p>
-        <div class="wave"></div>
+    <div class="fluido-container">
+        <div class="fluido-onda"></div>
+        <div class="fluido-contenido">
+            <p class="fluido-titulo">{titulo}</p>
+            <h2 class="fluido-valor">{valor}</h2>
+            <p class="fluido-desc">Nivel operativo: {porcentaje_llenado}%</p>
+        </div>
     </div>
     """
     components.html(html, height=altura)
