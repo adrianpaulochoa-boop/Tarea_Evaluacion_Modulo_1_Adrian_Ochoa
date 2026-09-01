@@ -44,17 +44,20 @@ def graficar_ipr(pr, pb, j, pwf_usuario, q_usuario):
         paper_bgcolor='rgba(0,0,0,0)', 
         xaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
         yaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
+        # 1. Configuración de Leyenda Horizontal Responsiva
         legend=dict(
+            orientation="h",       # Leyenda dispuesta horizontalmente
+            xanchor="center",      # Anclada desde su propio centro
+            x=0.5,                 # Ubicada exactamente a la mitad del gráfico (50%)
+            yanchor="top",         # Anclada desde su borde superior
+            y=-0.25,               # Desplazada hacia abajo, fuera de la cuadrícula
             font=dict(size=14), 
             bgcolor='rgba(255,255,255,0.9)', 
             bordercolor='#D1D5DB', 
-            borderwidth=1,
-            x=0.98,          
-            y=0.98,          
-            xanchor='right', 
-            yanchor='top'    
+            borderwidth=1
         ),
-        margin=dict(l=60, r=40, t=60, b=60)
+        # 2. Ajuste de Márgenes (Aumento del margen inferior 'b' para acomodar la leyenda)
+        margin=dict(l=60, r=40, t=60, b=100)
     )
     return fig
 
@@ -78,25 +81,28 @@ def graficar_hidrostatica(mw, tvd_usuario, ph_usuario):
     ))
     
     fig.update_layout(
-        title=dict(text="<b>Perfil de Presión Hidrostática</b>", font=dict(size=26, color='#0B3C49')),
-        xaxis_title=dict(text="<b>Presión (Ph) [psi]</b>", font=dict(size=18)),
-        yaxis_title=dict(text="<b>Profundidad (TVD) [ft]</b>", font=dict(size=18)),
+        title=dict(text="<b>Desempeño de Afluencia (IPR)</b>", font=dict(size=26, color='#0B3C49')),
+        xaxis_title=dict(text="<b>Caudal (q) [STB/d]</b>", font=dict(size=18)),
+        yaxis_title=dict(text="<b>Presión de Fondo (Pwf) [psi]</b>", font=dict(size=18)),
         font=dict(color='#1F2933', size=16),
         plot_bgcolor='#FFFFFF',
-        paper_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)', 
         xaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
-        yaxis=dict(autorange="reversed", showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
+        yaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
+        # 1. Configuración de Leyenda Horizontal Responsiva
         legend=dict(
+            orientation="h",       # Leyenda dispuesta horizontalmente
+            xanchor="center",      # Anclada desde su propio centro
+            x=0.5,                 # Ubicada exactamente a la mitad del gráfico (50%)
+            yanchor="top",         # Anclada desde su borde superior
+            y=-0.25,               # Desplazada hacia abajo, fuera de la cuadrícula
             font=dict(size=14), 
             bgcolor='rgba(255,255,255,0.9)', 
             bordercolor='#D1D5DB', 
-            borderwidth=1,
-            x=0.98,
-            y=0.98,
-            xanchor='right',
-            yanchor='top'
+            borderwidth=1
         ),
-        margin=dict(l=60, r=40, t=60, b=60)
+        # 2. Ajuste de Márgenes (Aumento del margen inferior 'b' para acomodar la leyenda)
+        margin=dict(l=60, r=40, t=60, b=100)
     )
     return fig
 
@@ -120,25 +126,27 @@ def graficar_poes(poes_mmstb, volumen_recuperable_mmstb):
     ])
     
     fig.update_layout(
-        barmode='stack',
-        title=dict(text="<b>Distribución del Petróleo Original en Sitio</b>", font=dict(size=26, color='#0B3C49')),
-        yaxis_title=dict(text="<b>Volumen [MMSTB]</b>", font=dict(size=18)),
+        title=dict(text="<b>Desempeño de Afluencia (IPR)</b>", font=dict(size=26, color='#0B3C49')),
+        xaxis_title=dict(text="<b>Caudal (q) [STB/d]</b>", font=dict(size=18)),
+        yaxis_title=dict(text="<b>Presión de Fondo (Pwf) [psi]</b>", font=dict(size=18)),
         font=dict(color='#1F2933', size=16),
         plot_bgcolor='#FFFFFF',
-        paper_bgcolor='rgba(0,0,0,0)',
-        xaxis=dict(showgrid=False, zeroline=False),
+        paper_bgcolor='rgba(0,0,0,0)', 
+        xaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
         yaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
+        # 1. Configuración de Leyenda Horizontal Responsiva
         legend=dict(
+            orientation="h",       # Leyenda dispuesta horizontalmente
+            xanchor="center",      # Anclada desde su propio centro
+            x=0.5,                 # Ubicada exactamente a la mitad del gráfico (50%)
+            yanchor="top",         # Anclada desde su borde superior
+            y=-0.25,               # Desplazada hacia abajo, fuera de la cuadrícula
             font=dict(size=14), 
             bgcolor='rgba(255,255,255,0.9)', 
             bordercolor='#D1D5DB', 
-            borderwidth=1,
-            x=0.98,
-            y=0.98,
-            xanchor='right',
-            yanchor='top'
+            borderwidth=1
         ),
-        margin=dict(l=60, r=40, t=60, b=60),
-        width=500
+        # 2. Ajuste de Márgenes (Aumento del margen inferior 'b' para acomodar la leyenda)
+        margin=dict(l=60, r=40, t=60, b=100)
     )
     return fig
