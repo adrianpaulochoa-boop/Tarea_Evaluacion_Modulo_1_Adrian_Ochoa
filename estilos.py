@@ -263,45 +263,45 @@ def tarjeta_cyber_glitch(titulo, valor, descripcion="Pasa el cursor para desencr
     """
     components.html(html, height=altura)
     
-    def tarjeta_hover_simple(titulo, descripcion, altura=180):
-        """
-        Renderiza una tarjeta informativa amplia con un efecto hover sutil,
-        ideal para descripciones largas o propósitos de la aplicación.
-        """
-        html = f"""
-        <style>
-        body {{ margin: 0; padding: 10px; font-family: Arial, sans-serif; background: transparent; }}
-        .hover-card {{
-            background-color: #1F2933;
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 5px solid #0F766E;
-            color: #F1FAF7;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }}
-        .hover-card:hover {{
-            transform: translateY(-5px);
-            border-left-color: #A3E635;
-            box-shadow: 0 10px 25px rgba(163, 230, 53, 0.2);
-        }}
-        .hover-titulo {{
-            color: #F1FAF7;
-            margin-top: 0;
-            font-size: 20px;
-            margin-bottom: 15px;
-        }}
-        .hover-desc {{
-            font-size: 15px;
-            line-height: 1.6;
-            margin: 0;
-            opacity: 0.9;
-        }}
-        </style>
-        
-        <div class="hover-card">
-            <h4 class="hover-titulo">{titulo}</h4>
-            <p class="hover-desc">{descripcion}</p>
-        </div>
-        """
-        components.html(html, height=altura)
+def tarjeta_hover_simple(titulo, descripcion, altura=180):
+    """
+    Renderiza una tarjeta informativa amplia con un efecto hover sutil,
+    ideal para descripciones largas o propósitos de la aplicación.
+    """
+    html = f"""
+    <style>
+    body {{ margin: 0; padding: 10px; font-family: Arial, sans-serif; background: transparent; }}
+    .hover-card {{
+        background-color: #1F2933;
+        padding: 25px;
+        border-radius: 12px;
+        border-left: 5px solid #0F766E;
+        color: #F1FAF7;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }}
+    .hover-card:hover {{
+        transform: translateY(-5px);
+        border-left-color: #A3E635;
+        box-shadow: 0 10px 25px rgba(163, 230, 53, 0.2);
+    }}
+    .hover-titulo {{
+        color: #F1FAF7;
+        margin-top: 0;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }}
+    .hover-desc {{
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 0;
+        opacity: 0.9;
+    }}
+    </style>
+    
+    <div class="hover-card">
+        <h4 class="hover-titulo">{titulo}</h4>
+        <p class="hover-desc">{descripcion}</p>
+    </div>
+    """
+    components.html(html, height=altura)
