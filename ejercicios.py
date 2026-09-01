@@ -1,11 +1,12 @@
 # =============================================================================
 # ARCHIVO: ejercicios.py
 # DESCRIPCIÓN: Módulo de la vista de ejercicios (Producción, Perforación, Reservorios).
-# Versión inicial con componentes nativos de Streamlit para validación lógica.
+# Versión inicial integrada con cálculos backend y gráficas interactivas.
 # =============================================================================
 
 import streamlit as st
 import funciones_calculos
+import graficas
 
 def renderizar_ejercicios():
     st.title("Módulos de Cálculo de Ingeniería")
@@ -38,10 +39,11 @@ def renderizar_ejercicios():
                     st.metric(label="Caudal a Presión de Burbuja (qb)", value=f"{resultados['caudal_burbuja_stbd']} STB/d")
                     st.metric(label="Caudal Máximo Teórico (q_max)", value=f"{resultados['caudal_maximo_stbd']} STB/d")
                     
-                    # Espacio reservado para la futura gráfica de la curva IPR
-                    st.info("Gráfica de la curva IPR se insertará aquí en la siguiente fase de desarrollo.")
+                    # Integración de la gráfica IPR
+                    figura_ipr = graficas.graficar_ipr(pr, pb, j, pwf, resultados['caudal_operativo_stbd'])
+                    st.plotly_chart(figura_ipr, use_container_width=True)
             except Exception as e:
-                st.error(f"Error en la ejecución: {e}")
+                st.error(f"Error: {e}")
 
     with tab_perforacion:
         st.header("Cálculo de Presión Hidrostática")
@@ -62,8 +64,11 @@ def renderizar_ejercicios():
                 st.metric(label="Gradiente Hidrostático (Gh)", value=f"{resultados['gradiente_hidrostatico_psi_ft']} psi/ft")
                 st.metric(label="Presión Hidrostática (Ph)", value=f"{resultados['presion_hidrostatica_psi']} psi")
                 st.metric(label="Diferencial de Presión (ΔP)", value=f"{resultados['diferencial_presion_psi']} psi")
+                
+                # Integración del Perfil Hidrostático (Debe estar dentro del TRY)
+                figura_hidrostatica = graficas.graficar_hidrostatica(mw, tvd, resultados['presion_hidrostatica_psi'])
+                st.plotly_chart(figura_hidrostatica, use_container_width=True)
             except ValueError as ve:
-                # Captura específica de los errores lógicos definidos en backend
                 st.error(str(ve))
             except Exception as e:
                 st.error(f"Error inesperado: {e}")
@@ -95,8 +100,9 @@ def renderizar_ejercicios():
                 c1.metric(label="POES [MMSTB]", value=resultados['poes_mmstb'])
                 c2.metric(label="Volumen Recuperable [MMSTB]", value=resultados['volumen_recuperable_mmstb'])
                 
-                # Espacio para visualización volumétrica futura
-                st.info("Gráfico comparativo de volúmenes se implementará aquí.")
+                # Integración de la Volumetría
+                figura_poes = graficas.graficar_poes(resultados['poes_mmstb'], resultados['volumen_recuperable_mmstb'])
+                st.plotly_chart(figura_poes, use_container_width=True)
             except ValueError as ve:
                 st.error(str(ve))
             except Exception as e:
