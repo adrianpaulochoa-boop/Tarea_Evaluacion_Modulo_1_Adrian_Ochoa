@@ -27,25 +27,36 @@ def cargar_css_global():
     background-color: transparent !important;
     }
     
-    /* 2. Personalización de la Barra Lateral */
+   /* 2. Personalización de la Barra Lateral */
     [data-testid="stSidebar"] {
-        background-color: #072A34 !important; /* Tono ligeramente más oscuro para dar profundidad */
-        border-right: 1px solid #0F766E !important; /* Línea divisoria de acento */
+        background-color: #072A34 !important; 
+        border-right: 1px solid #0F766E !important; 
     }
     
-    /* Forzar el color de los textos, títulos y opciones dentro del Sidebar */
+    /* Aumentar tamaño del Título principal (Menú de Navegación) */
     [data-testid="stSidebar"] h1,
     [data-testid="stSidebar"] h2,
-    [data-testid="stSidebar"] h3,
-    [data-testid="stSidebar"] p,
-    [data-testid="stSidebar"] span,
-    [data-testid="stSidebar"] label {
+    [data-testid="stSidebar"] h3 {
         color: #F1FAF7 !important;
+        font-size: 32px !important; 
+        font-weight: 700 !important;
+        margin-bottom: 20px !important;
     }
     
-    /* Mejorar el contraste de los botones de radio inactivos y activos en el sidebar */
-    .stRadio div[role="radiogroup"] label {
+    /* Aumentar tamaño de la instrucción general ("Seleccione un módulo:") */
+    [data-testid="stSidebar"] label {
         color: #F1FAF7 !important;
+        font-size: 20px !important; 
+        margin-bottom: 10px !important;
+    }
+    
+    /* Aumentar tamaño específico de las opciones del botón Radio (Home, Ejercicios) */
+    .stRadio div[role="radiogroup"] label p,
+    .stRadio div[role="radiogroup"] label span {
+        color: #F1FAF7 !important;
+        font-size: 22px !important; 
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
     }
 
     /* 3. Personalización de Botones Nativos */
