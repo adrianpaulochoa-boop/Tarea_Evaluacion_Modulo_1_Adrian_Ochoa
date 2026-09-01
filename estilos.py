@@ -14,7 +14,7 @@ def cargar_css_global():
     """
     css = """
     <style>
-    /* 1. Fondo principal de la aplicación */
+    /* Fondo principal de la aplicación */
     .stApp {
         background-color: #0B3C49;
     }
@@ -27,7 +27,7 @@ def cargar_css_global():
     background-color: transparent !important;
     }
     
-   /* 2. Personalización de la Barra Lateral */
+   /* Personalización de la Barra Lateral */
     [data-testid="stSidebar"] {
         background-color: #072A34 !important; 
         border-right: 1px solid #0F766E !important; 
@@ -59,7 +59,7 @@ def cargar_css_global():
         padding-bottom: 8px !important;
     }
 
-    /* 3. Personalización de Botones Nativos */
+    /* Personalización de Botones Nativos */
     .stButton>button {
         background-color: #0F766E !important;
         color: #F1FAF7 !important;
@@ -69,6 +69,41 @@ def cargar_css_global():
         font-weight: bold !important;
         width: 100%;
         transition: all 0.3s ease !important;
+    }
+    
+    /* Personalización de Radio Buttons (Bomba de selección) */
+    div[data-testid="stRadio"] div[role="radio"][aria-checked="true"] div:first-of-type {
+        background-color: #A3E635 !important;
+        border-color: #A3E635 !important;
+    }
+    
+    div[data-testid="stRadio"] div[role="radio"]:hover div:first-of-type {
+        border-color: #BEF264 !important;
+        box-shadow: 0 0 5px rgba(190, 242, 100, 0.5) !important;
+    }
+    
+    div[data-testid="stRadio"] div[role="radio"][aria-checked="true"]:hover div:first-of-type {
+        background-color: #BEF264 !important;
+        border-color: #BEF264 !important;
+    }
+
+    /* Personalización de Pestañas (Línea de selección y texto) */
+    div[data-testid="stTabs"] button[aria-selected="true"] {
+        color: #A3E635 !important;
+        border-bottom-color: #A3E635 !important;
+    }
+    
+    /* Intercepción del div de resaltado nativo de Streamlit */
+    div[data-testid="stTabs"] div[data-baseweb="tab-highlight"] {
+        background-color: #A3E635 !important;
+    }
+    
+    div[data-testid="stTabs"] button:hover {
+        color: #BEF264 !important;
+    }
+    
+    div[data-testid="stTabs"] button[aria-selected="true"]:hover {
+        border-bottom-color: #BEF264 !important;
     }
     
     [data-testid="stPlotlyChart"] {
