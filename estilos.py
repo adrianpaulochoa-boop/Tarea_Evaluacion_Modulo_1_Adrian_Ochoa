@@ -10,16 +10,41 @@ import streamlit.components.v1 as components
 def cargar_css_global():
     """
     Inyecta las reglas CSS globales para el fondo de la aplicación, 
-    colores de texto y personalización de botones nativos.
+    barra lateral, colores de texto y botones nativos.
     """
     css = """
     <style>
+    /* 1. Fondo principal de la aplicación */
     .stApp {
         background-color: #0B3C49;
     }
+    
     h1, h2, h3, p, span, label {
         color: #F1FAF7 !important;
     }
+    
+    /* 2. Personalización de la Barra Lateral */
+    [data-testid="stSidebar"] {
+        background-color: #072A34 !important; /* Tono ligeramente más oscuro para dar profundidad */
+        border-right: 1px solid #0F766E !important; /* Línea divisoria de acento */
+    }
+    
+    /* Forzar el color de los textos, títulos y opciones dentro del Sidebar */
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] label {
+        color: #F1FAF7 !important;
+    }
+    
+    /* Mejorar el contraste de los botones de radio inactivos y activos en el sidebar */
+    .stRadio div[role="radiogroup"] label {
+        color: #F1FAF7 !important;
+    }
+
+    /* 3. Personalización de Botones Nativos */
     .stButton>button {
         background-color: #0F766E !important;
         color: #F1FAF7 !important;
@@ -30,6 +55,7 @@ def cargar_css_global():
         width: 100%;
         transition: all 0.3s ease !important;
     }
+    
     .stButton>button:hover {
         background-color: #A3E635 !important;
         color: #1F2933 !important;
@@ -201,7 +227,7 @@ def tarjeta_cyber_glitch(titulo, valor, descripcion="Pasa el cursor para desencr
     
     <div class="glitch-card" id="glitch-container">
         <h4 style="margin:0; border-bottom: 1px dashed #A3E635; padding-bottom: 5px;">{titulo}</h4>
-        <div class="valor-glitch" id="val" data-target="{valor}">[ENCRIPTADO]</div>
+        <div class="valor-glitch" id="val" data-target="{valor}">[PASE EL CURSOR]</div>
         <p style="margin:0; font-size:12px; opacity: 0.7;">{descripcion}</p>
     </div>
     
