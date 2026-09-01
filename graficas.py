@@ -1,7 +1,7 @@
 # =============================================================================
 # ARCHIVO: graficas.py
 # DESCRIPCIÓN: Módulo de visualización con Plotly.
-# Integración de márgenes extendidos para prevención de recortes en leyendas.
+# Leyendas ancladas al interior del gráfico y textos optimizados.
 # =============================================================================
 
 import plotly.graph_objects as go
@@ -31,7 +31,7 @@ def graficar_ipr(pr, pb, j, pwf_usuario, q_usuario):
     
     fig.add_trace(go.Scatter(
         x=[q_usuario], y=[pwf_usuario], 
-        mode='markers', name='Punto Operativo', 
+        mode='markers', name='Operativo', 
         marker=dict(color='#A3E635', size=16, line=dict(color='#1F2933', width=2))
     ))
     
@@ -45,14 +45,16 @@ def graficar_ipr(pr, pb, j, pwf_usuario, q_usuario):
         xaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
         yaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
         legend=dict(
-            font=dict(size=15), 
+            font=dict(size=14), 
             bgcolor='rgba(255,255,255,0.9)', 
             bordercolor='#D1D5DB', 
             borderwidth=1,
-            x=1.02, 
-            y=0.98
+            x=0.98,          
+            y=0.98,          
+            xanchor='right', 
+            yanchor='top'    
         ),
-        margin=dict(l=60, r=180, t=60, b=60)
+        margin=dict(l=60, r=40, t=60, b=60)
     )
     return fig
 
@@ -65,13 +67,13 @@ def graficar_hidrostatica(mw, tvd_usuario, ph_usuario):
     
     fig.add_trace(go.Scatter(
         x=ph_array, y=tvd_array, 
-        mode='lines', name='Gradiente de Lodo', 
+        mode='lines', name='Gradiente', 
         line=dict(color='#0F766E', width=4)
     ))
     
     fig.add_trace(go.Scatter(
         x=[ph_usuario], y=[tvd_usuario], 
-        mode='markers', name='Profundidad Actual', 
+        mode='markers', name='Prof. Actual', 
         marker=dict(color='#A3E635', size=16, line=dict(color='#1F2933', width=2))
     ))
     
@@ -85,14 +87,16 @@ def graficar_hidrostatica(mw, tvd_usuario, ph_usuario):
         xaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
         yaxis=dict(autorange="reversed", showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
         legend=dict(
-            font=dict(size=15), 
+            font=dict(size=14), 
             bgcolor='rgba(255,255,255,0.9)', 
             bordercolor='#D1D5DB', 
             borderwidth=1,
-            x=1.02, 
-            y=0.98
+            x=0.98,
+            y=0.98,
+            xanchor='right',
+            yanchor='top'
         ),
-        margin=dict(l=60, r=180, t=60, b=60)
+        margin=dict(l=60, r=40, t=60, b=60)
     )
     return fig
 
@@ -102,13 +106,13 @@ def graficar_poes(poes_mmstb, volumen_recuperable_mmstb):
     
     fig = go.Figure(data=[
         go.Bar(
-            name='Volumen Recuperable', 
+            name='Recuperable', 
             x=['Análisis Volumétrico'], 
             y=[volumen_recuperable_mmstb], 
             marker_color='#A3E635'
         ),
         go.Bar(
-            name='Volumen Remanente', 
+            name='Remanente', 
             x=['Análisis Volumétrico'], 
             y=[volumen_no_recuperable], 
             marker_color='#0F766E'
@@ -125,14 +129,16 @@ def graficar_poes(poes_mmstb, volumen_recuperable_mmstb):
         xaxis=dict(showgrid=False, zeroline=False),
         yaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
         legend=dict(
-            font=dict(size=15), 
+            font=dict(size=14), 
             bgcolor='rgba(255,255,255,0.9)', 
             bordercolor='#D1D5DB', 
             borderwidth=1,
-            x=1.02, 
-            y=0.98
+            x=0.98,
+            y=0.98,
+            xanchor='right',
+            yanchor='top'
         ),
-        margin=dict(l=60, r=180, t=60, b=60),
+        margin=dict(l=60, r=40, t=60, b=60),
         width=500
     )
     return fig
