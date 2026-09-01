@@ -81,7 +81,7 @@ def graficar_hidrostatica(mw, tvd_usuario, ph_usuario):
     ))
     
     fig.update_layout(
-        title=dict(text="<b>Desempeño de Afluencia (IPR)</b>", font=dict(size=26, color='#0B3C49')),
+        title=dict(text="<b>Perfil de Presión Hidrostática</b>", font=dict(size=26, color='#0B3C49')),
         xaxis_title=dict(text="<b>Caudal (q) [STB/d]</b>", font=dict(size=18)),
         yaxis_title=dict(text="<b>Presión de Fondo (Pwf) [psi]</b>", font=dict(size=18)),
         font=dict(color='#1F2933', size=16),
@@ -126,7 +126,7 @@ def graficar_poes(poes_mmstb, volumen_recuperable_mmstb):
     ])
     
     fig.update_layout(
-        title=dict(text="<b>Desempeño de Afluencia (IPR)</b>", font=dict(size=26, color='#0B3C49')),
+        title=dict(text="<b>Distribución del Petróleo Original en Sitio</b>", font=dict(size=26, color='#0B3C49')),
         xaxis_title=dict(text="<b>Caudal (q) [STB/d]</b>", font=dict(size=18)),
         yaxis_title=dict(text="<b>Presión de Fondo (Pwf) [psi]</b>", font=dict(size=18)),
         font=dict(color='#1F2933', size=16),
