@@ -23,6 +23,10 @@ def cargar_css_global():
         color: #F1FAF7 !important;
     }
     
+    header {
+    background-color: transparent !important;
+    }
+    
     /* 2. Personalización de la Barra Lateral */
     [data-testid="stSidebar"] {
         background-color: #072A34 !important; /* Tono ligeramente más oscuro para dar profundidad */
