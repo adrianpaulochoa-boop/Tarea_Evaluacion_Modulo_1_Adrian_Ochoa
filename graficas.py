@@ -1,7 +1,7 @@
 # =============================================================================
 # ARCHIVO: graficas.py
 # DESCRIPCIÓN: Módulo de visualización con Plotly.
-# Tipografía incrementada, cuadrículas activas y fondos transparentes.
+# Integración de márgenes extendidos para prevención de recortes en leyendas.
 # =============================================================================
 
 import plotly.graph_objects as go
@@ -44,8 +44,15 @@ def graficar_ipr(pr, pb, j, pwf_usuario, q_usuario):
         paper_bgcolor='rgba(0,0,0,0)', 
         xaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
         yaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
-        legend=dict(font=dict(size=15), bgcolor='rgba(255,255,255,0.9)', bordercolor='#D1D5DB', borderwidth=1),
-        margin=dict(l=60, r=40, t=60, b=60)
+        legend=dict(
+            font=dict(size=15), 
+            bgcolor='rgba(255,255,255,0.9)', 
+            bordercolor='#D1D5DB', 
+            borderwidth=1,
+            x=1.02, 
+            y=0.98
+        ),
+        margin=dict(l=60, r=180, t=60, b=60)
     )
     return fig
 
@@ -77,8 +84,15 @@ def graficar_hidrostatica(mw, tvd_usuario, ph_usuario):
         paper_bgcolor='rgba(0,0,0,0)',
         xaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
         yaxis=dict(autorange="reversed", showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
-        legend=dict(font=dict(size=15), bgcolor='rgba(255,255,255,0.9)', bordercolor='#D1D5DB', borderwidth=1),
-        margin=dict(l=60, r=40, t=60, b=60)
+        legend=dict(
+            font=dict(size=15), 
+            bgcolor='rgba(255,255,255,0.9)', 
+            bordercolor='#D1D5DB', 
+            borderwidth=1,
+            x=1.02, 
+            y=0.98
+        ),
+        margin=dict(l=60, r=180, t=60, b=60)
     )
     return fig
 
@@ -110,8 +124,15 @@ def graficar_poes(poes_mmstb, volumen_recuperable_mmstb):
         paper_bgcolor='rgba(0,0,0,0)',
         xaxis=dict(showgrid=False, zeroline=False),
         yaxis=dict(showgrid=True, gridcolor='#D1D5DB', gridwidth=1, zeroline=False),
-        legend=dict(font=dict(size=15), bgcolor='rgba(255,255,255,0.9)', bordercolor='#D1D5DB', borderwidth=1),
-        margin=dict(l=60, r=40, t=60, b=60),
+        legend=dict(
+            font=dict(size=15), 
+            bgcolor='rgba(255,255,255,0.9)', 
+            bordercolor='#D1D5DB', 
+            borderwidth=1,
+            x=1.02, 
+            y=0.98
+        ),
+        margin=dict(l=60, r=180, t=60, b=60),
         width=500
     )
     return fig
