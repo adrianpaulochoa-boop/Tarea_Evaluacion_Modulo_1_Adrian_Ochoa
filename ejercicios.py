@@ -49,7 +49,7 @@ def renderizar_ejercicios():
                         )
                     
                     figura_ipr = graficas.graficar_ipr(pr, pb, j, pwf, resultados['caudal_operativo_stbd'])
-                    st.plotly_chart(figura_ipr, use_container_width=True)
+                    st.plotly_chart(figura_ipr, use_container_width=True,theme=None)
             except Exception as e:
                 st.error(f"Error: {e}")
 
@@ -76,7 +76,7 @@ def renderizar_ejercicios():
                 )
                 
                 figura_hidrostatica = graficas.graficar_hidrostatica(mw, tvd, resultados['presion_hidrostatica_psi'])
-                st.plotly_chart(figura_hidrostatica, use_container_width=True)
+                st.plotly_chart(figura_hidrostatica, use_container_width=True,theme=None)
             except ValueError as ve:
                 st.error(str(ve))
             except Exception as e:
@@ -117,7 +117,7 @@ def renderizar_ejercicios():
                     )
                 
                 figura_poes = graficas.graficar_poes(resultados['poes_mmstb'], resultados['volumen_recuperable_mmstb'])
-                st.plotly_chart(figura_poes, use_container_width=True)
+                st.plotly_chart(figura_poes, use_container_width=True,theme=None)
             except ValueError as ve:
                 st.error(str(ve))
             except Exception as e:
