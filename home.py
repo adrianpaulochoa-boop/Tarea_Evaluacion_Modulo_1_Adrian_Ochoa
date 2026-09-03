@@ -9,7 +9,7 @@ import estilos
 
 def renderizar_home():
     # 1. Encabezados centrados
-    st.markdown("<h1 style='text-align: center; color: #F1FAF7;'>Plataforma Integral Oil & Gas</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #F1FAF7;'>Suite Computacional de Cálculos Petroleros</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: #F1FAF7; opacity: 0.9;'>Bootcamp Data Analytics for Oil & Gas</h3>", unsafe_allow_html=True)
     
     st.markdown("<br>", unsafe_allow_html=True)
