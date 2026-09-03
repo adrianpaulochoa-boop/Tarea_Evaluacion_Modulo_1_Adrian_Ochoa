@@ -9,7 +9,7 @@ import ejercicios
 import estilos
 
 st.set_page_config(
-    page_title="Plataforma Oil & Gas",
+    page_title="Suite Computacional de Cálculos Petroleros",
     page_icon="⚙️",
     layout="wide",
     initial_sidebar_state="expanded"
