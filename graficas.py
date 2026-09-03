@@ -111,7 +111,6 @@ def graficar_hidrostatica(mw, tvd_usuario, ph_usuario):
 
 
 def graficar_poes(poes_mmstb, volumen_recuperable_mmstb):
-    # Cálculos aislados de la lógica visual
     volumen_no_recuperable = poes_mmstb - volumen_recuperable_mmstb
     
     fig = go.Figure(data=[
@@ -130,9 +129,8 @@ def graficar_poes(poes_mmstb, volumen_recuperable_mmstb):
     ])
     
     fig.update_layout(
-        barmode='stack',
+        barmode='group',
         title=dict(text="<b>Distribución del Petróleo Original en Sitio</b>", font=dict(size=26, color='#0B3C49')),
-        # Ejes corregidos para análisis volumétrico
         xaxis_title=dict(text="<b>Parámetros de Contribución</b>", font=dict(size=18)),
         yaxis_title=dict(text="<b>Volumen [MMSTB]</b>", font=dict(size=18)),
         font=dict(color='#1F2933', size=16),
@@ -154,5 +152,4 @@ def graficar_poes(poes_mmstb, volumen_recuperable_mmstb):
         margin=dict(l=60, r=40, t=60, b=100),
         width=500
     )
-    return fig
     return fig
